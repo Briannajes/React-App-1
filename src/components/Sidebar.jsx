@@ -14,14 +14,14 @@ export default function Sidebar() {
   let addMenuItem = useCallback(() => {
     console.log("Added menu item")
     if (newMenuItem.trim()) {
-      setMenuItems((prevItems) => [newMenuItems, ...prevItems]);
+      setMenuItems((prevItems) => [newMenuItem, ...prevItems]);
       setNewMenuItem('');
     }
     //   // TODO: 3. Add a new menu item to the correct variable associated with this class.
     //   // This involves adding a parameter and changing a class instance variable (props).
     //   setMenuItems([item, ...menuItems])
   }, [newMenuItem]);
-  const filteredMenuItems = menuItems.filiter((item) =>
+  const filteredMenuItems = menuItems.filter((item) =>
     item.toLowerCase().includes(filter.toLowerCase())
     );
 
@@ -40,13 +40,12 @@ export default function Sidebar() {
       ></input>
       <br />
       <button
-        onClick={() => {
-          /* TODO: 3 */
-        }}
+        onClick={addMenuItem}
       >
         Add Item
       </button>
       <br />
+      
       <input
         id="filter"
         type="text"
@@ -54,6 +53,11 @@ export default function Sidebar() {
         onChange={(event) => setFilter(event.target.value)}
         placeholder="Filter by..."
       ></input>
+      <ul>
+        {filteredMenuItems.map((item, index) => (
+      <li key={index}>{item}</li>
+      ))}
+      </ul>
     </div>
   )
 }
