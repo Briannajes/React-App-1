@@ -6,7 +6,7 @@ import { useState, useCallback } from "react"
  */
 export default function Sidebar() {
   let [newMenuItem, setNewMenuItem] = useState("")
-  let [menuItems, setMenuItems] = useState([]); // TODO: 2 Using a state hook, maintain the current menu items as an array state.
+  export default function Sidebar({ menuItems, setMenuItems }) { // TODO: 2 Using a state hook, maintain the current menu items as an array state.
   // let [menuItems, setMenuItems] = useState(initialMenuItems)
   let [filter, setFilter] = useState("")
   // Adds a single string passed in as parameter to the state element
